@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var keys = document.getElementsByClassName('keys')[0];
   var historyString = '';
   var historyArray = [];
+  var totalTemp;
 
   // display the right number when clicked
   keys.addEventListener('click', countHistory);
@@ -47,8 +48,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function keyPress(key) {
-    historyArray.push(key);
-    historyString += key;
+    if (totalTemp || totalTemp == 0) {
+      historyArray.push(totalTemp, key);
+      console.log(historyArray);
+      historyString += totalTemp + key;
+      totalTemp = '';
+    } else {
+      historyArray.push(key);
+      historyString += key;
+    }
     showHistory();
   }
 
@@ -64,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function total() {
-    mainDisplay.innerHTML = (eval(historyString));
-    subDisplay.innerHTML = historyString + " = " + (eval(historyString));
+    totalTemp = (eval(historyString));
+    mainDisplay.innerHTML = totalTemp;
+    subDisplay.innerHTML = historyString + " = " + totalTemp;
     historyString = '';
     historyArray = [];
   }
