@@ -1,49 +1,89 @@
 body {
-
+  background: #C3BDBC;
+  padding-top: 30px;
+  color: #555B6E;
+  font-family: 'Kanit', sans-serif;
 }
 
 .container {
   margin: 0 auto;
   text-align: center;
-  width: 400px;
+  width: 376px;
   height: 600px;
-  background: pink;
 }
-.calculator {
 
-  background: red;
+h1 {
+  color: #A38977;
+  text-transform: uppercase;
+}
+
+.calculator {
+  background: #555B6E;
+  border: 6px solid #A38977;
   padding: 28px;
+  border-radius: 15px;
+  box-shadow: 0 9px 0 #2F323C;
 }
 
 .screen {
-  background: beige;
-  width: 100%;
-  height: 50px;
+  border: 6px solid #A38977;
+  background: #F4F2F3;
+  width: 284px;
+  height: 70px;
   text-align: right;
   font-size: 25px;
+  border-radius: 15px;
+  margin: 6px 6px 12px;
+  font-size: 30px;
+  box-shadow:         inset 0 5px 10px #2F323C;
 }
-
+.main {
+  color: #2F323C;
+  margin-right: 20px;
+  outline: pink;
+}
 .sub {
-  color: #ccc;
+  margin-right: 20px;
+  color: #89B0AE;
   font-size: .5em;
 }
 
 .keys {
   display: flex;
   flex-wrap: wrap;
-  justify-content:;
+  justify-content: flex-start;
   font-size: 25px;
 }
 
 button {
   width: 65px;
-  height: 71px;
-  margin: 3px;
+  height: 56px;
+  margin: 6px;
+  line-height: 0;
+  font-size: 43px;
+  background: #79918C;
+  color: #FAF9F9;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 7px 0 #2F323C;
+}
+
+.num {
+  background: #89B0AE;
+}
+
+.fixed {
+  position: relative;
+  margin-top: -62px;
 }
 
 .double-width {
   width: 142px;
 }
 .double-height {
-  height: 142px;
+  height: 125px;
+}
+
+#equals {
+  background: #A38977;
 }

@@ -21,24 +21,19 @@ document.addEventListener("DOMContentLoaded", function() {
         cancelEntry();
         break;
       case 'divide':
-        historyArray.push('/');
-        historyString += '/';
-        showHistory();
+        keyPress('/');
         break;
       case 'multiply':
-        historyArray.push('*');
-        historyString += '*';
-        showHistory();
+        keyPress('*');
         break;
       case 'minus':
-        historyArray.push('-');
-        historyString += '-';
-        showHistory();
+        keyPress('-');
         break;
       case 'plus':
-        historyArray.push('+');
-        historyString += '+';
-        showHistory();
+        keyPress('+');
+        break;
+      case 'decimal':
+        keyPress('.');
         break;
       case 'equals':
         total();
@@ -51,13 +46,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  function keyPress(key) {
+    historyArray.push(key);
+    historyString += key;
+    showHistory();
+  }
+
   function cancelEntry() {
     historyArray.pop();
     historyString = historyArray.join('');
     showHistory();
   }
 
-  function showHistory() {
+  function showHistory(key) {
     mainDisplay.innerHTML = historyString;
     subDisplay.innerHTML = historyString;
   }
@@ -65,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
   function total() {
     mainDisplay.innerHTML = (eval(historyString));
     subDisplay.innerHTML = historyString + " = " + (eval(historyString));
+    historyString = '';
+    historyArray = [];
   }
 
 }); //close DOMContentLoaded
