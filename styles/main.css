@@ -1,4 +1,5 @@
 body {
+
   background: #C3BDBC;
   padding-top: 30px;
   color: #555B6E;
@@ -8,7 +9,7 @@ body {
 .container {
   margin: 0 auto;
   text-align: center;
-  width: 376px;
+  width: 406px;
   height: 600px;
 }
 
@@ -18,6 +19,7 @@ h1 {
 }
 
 .calculator {
+  margin: 0 15px;
   background: #555B6E;
   border: 6px solid #A38977;
   padding: 28px;
