@@ -40,20 +40,20 @@ document.addEventListener("DOMContentLoaded", function() {
         total();
         break;
       default:
-        historyArray.push(evt.target.id);
-        historyString += parseInt(evt.target.id);
-        showHistory();
+        keyPress(evt.target.id);
         break;
     }
   }
 
   function keyPress(key) {
-    if (totalTemp || totalTemp == 0) {
+    // if totalTemp exists and keypress is an operator, operate on totalTemp
+    if ((!isNaN(totalTemp)) && (isNaN(key))) {
       historyArray.push(totalTemp, key);
-      console.log(historyArray);
       historyString += totalTemp + key;
       totalTemp = '';
     } else {
+      // if keypress is a number, clear totalTemp and start new calculation
+      totalTemp = '';
       historyArray.push(key);
       historyString += key;
     }
