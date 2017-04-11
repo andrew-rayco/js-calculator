@@ -23,6 +23,11 @@ body {
   font-size: 25px;
 }
 
+.sub {
+  color: #ccc;
+  font-size: .5em;
+}
+
 .keys {
   display: flex;
   flex-wrap: wrap;
