@@ -9,6 +9,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // display the right number when clicked
   keys.addEventListener('click', countHistory);
+  keys.addEventListener('mousedown', animateDown);
+  keys.addEventListener('mouseup', animateUp);
+
+  function animateDown(evt) {
+    var pressed = document.getElementById(evt.target.id);
+    pressed.classList.add('pressed');
+  }
+
+  function animateUp(evt) {
+    var pressed = document.getElementById(evt.target.id);
+    pressed.classList.remove('pressed');
+  }
 
   function countHistory(evt) {
     switch(evt.target.id) {
