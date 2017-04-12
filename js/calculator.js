@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
   var historyArray = [];
   var totalTemp;
 
+
   // display the right number when clicked
   keys.addEventListener('click', countHistory);
+
+
+  // Animations
   keys.addEventListener('mousedown', animateDown);
   keys.addEventListener('mouseup', animateUp);
 
@@ -22,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
     pressed.classList.remove('pressed');
   }
 
+
+  /* convert button id's into workable operator strings, or call function based
+  on whether AC, CE or equals button. Blank case to catch clicks between
+  buttons */
   function countHistory(evt) {
     switch(evt.target.id) {
       case 'blank':
@@ -57,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+
+  // Action to determine if working on result of previous calculation or new calc
   function keyPress(key) {
     // if totalTemp exists and keypress is an operator, operate on totalTemp
     if ((!isNaN(totalTemp)) && (isNaN(key))) {
@@ -72,16 +82,19 @@ document.addEventListener("DOMContentLoaded", function() {
     showHistory();
   }
 
+
   function cancelEntry() {
     historyArray.pop();
     historyString = historyArray.join('');
     showHistory();
   }
 
+
   function showHistory(key) {
     mainDisplay.innerHTML = historyString;
     subDisplay.innerHTML = historyString;
   }
+
 
   function total() {
     totalTemp = (eval(historyString));
